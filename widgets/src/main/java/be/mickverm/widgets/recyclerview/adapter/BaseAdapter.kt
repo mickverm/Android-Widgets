@@ -11,4 +11,10 @@ abstract class BaseAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView.Adapt
     fun getItem(position: Int): T = items[position]
 
     abstract fun updateItems(items: List<T>)
+
+    final override fun onBindViewHolder(holder: VH, position: Int) {
+        onBindViewHolder(holder, position, items[position])
+    }
+
+    abstract fun onBindViewHolder(holder: VH, position: Int, item: T)
 }
