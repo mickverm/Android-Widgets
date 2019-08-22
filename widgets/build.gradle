@@ -15,7 +15,7 @@ ext {
     siteUrl = 'https://github.com/mickverm/Android-Widgets'
     gitUrl = 'https://github.com/mickverm/Android-Widgets.git'
 
-    libraryVersion = '0.1.3'
+    libraryVersion = '0.1.4'
 
     developerId = 'Mickverm'
     developerName = 'Michiel Vermeersch'
@@ -41,6 +41,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
     implementation "androidx.recyclerview:recyclerview:$recyclerviewVersion"
+    implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
 
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
 
