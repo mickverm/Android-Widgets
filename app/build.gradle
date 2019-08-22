@@ -24,6 +24,8 @@ android {
 }
 
 dependencies {
+    implementation project(':widgets')
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
     implementation "androidx.appcompat:appcompat:$appcompatVersion"
