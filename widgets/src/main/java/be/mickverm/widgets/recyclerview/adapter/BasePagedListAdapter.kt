@@ -17,6 +17,12 @@ abstract class BasePagedListAdapter<T, VH : RecyclerView.ViewHolder>(
 
     abstract fun onBindViewHolder(holder: VH, position: Int, item: T?)
 
+    override fun onBindViewHolder(holder: VH, position: Int, payloads: MutableList<Any>) =
+        onBindViewHolder(holder, position, getItem(position), payloads)
+
+    open fun onBindViewHolder(holder: VH, position: Int, item: T?, payloads: MutableList<Any>) =
+        onBindViewHolder(holder, position, item)
+
     fun inflateLayout(@LayoutRes layoutRes: Int, parent: ViewGroup): View =
         LayoutInflater.from(parent.context).inflate(layoutRes, parent, false)
 }

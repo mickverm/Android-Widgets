@@ -23,6 +23,12 @@ abstract class BaseAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView.Adapt
 
     abstract fun onBindViewHolder(holder: VH, position: Int, item: T)
 
+    final override fun onBindViewHolder(holder: VH, position: Int, payloads: MutableList<Any>) =
+        onBindViewHolder(holder, position, items[position], payloads)
+
+    open fun onBindViewHolder(holder: VH, position: Int, item: T, payloads: MutableList<Any>) =
+        onBindViewHolder(holder, position, item)
+
     fun inflateLayout(@LayoutRes layoutRes: Int, parent: ViewGroup): View =
         LayoutInflater.from(parent.context).inflate(layoutRes, parent, false)
 }
