@@ -10,7 +10,7 @@ abstract class RxBaseAdapter<T, VH : RecyclerView.ViewHolder> : BaseAdapter<T, V
         updateItems(items)
     }
 
-    final override fun updateItems(items: List<T>) {
+    override fun updateItems(items: List<T>) {
         this.items = items
         notifyDataSetChanged()
     }
