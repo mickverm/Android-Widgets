@@ -4,7 +4,7 @@
     <ImageView
         android:id="@+id/empty_content_view_image"
         android:layout_width="match_parent"
-        android:layout_height="108dp"
+        android:layout_height="@dimen/ecv_icon_size"
         android:gravity="center_horizontal" />
 
     <TextView
@@ -12,12 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal|top"
-        android:paddingStart="16dp"
-        android:paddingTop="16dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="8dp"
+        android:paddingStart="@dimen/ecv_text_padding_start"
+        android:paddingTop="@dimen/ecv_text_padding_top"
+        android:paddingEnd="@dimen/ecv_text_padding_end"
+        android:paddingBottom="@dimen/ecv_text_padding_bottom"
         android:textColor="?android:attr/textColorSecondary"
-        android:textSize="16sp" />
+        android:textSize="@dimen/ecv_text_size_description" />
 
     <TextView
         android:id="@+id/empty_content_view_action"
@@ -29,13 +29,14 @@
         android:focusable="true"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="8dp"
+        android:paddingStart="@dimen/ecv_text_padding_start"
+        android:paddingTop="@dimen/ecv_text_padding_top"
+        android:paddingEnd="@dimen/ecv_text_padding_end"
+        android:paddingBottom="@dimen/ecv_text_padding_bottom"
         android:singleLine="true"
         android:textAllCaps="true"
-        android:textColor="?android:attr/textColorPrimary" />
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="@dimen/ecv_text_size_action" />
 
     <Space
         android:layout_width="match_parent"

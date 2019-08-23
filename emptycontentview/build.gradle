@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/mickverm/Android-Widgets'
     gitUrl = 'https://github.com/mickverm/Android-Widgets.git'
 
-    libraryVersion = '1.0.2'
+    libraryVersion = '1.0.3'
 
     developerId = 'Mickverm'
     developerName = 'Michiel Vermeersch'
