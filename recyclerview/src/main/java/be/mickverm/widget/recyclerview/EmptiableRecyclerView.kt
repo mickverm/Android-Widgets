@@ -1,4 +1,4 @@
-package be.mickverm.widgets.recyclerview
+package be.mickverm.widget.recyclerview
 
 import android.content.Context
 import android.util.AttributeSet

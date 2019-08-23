@@ -8,6 +8,6 @@ class ItemsFragmentViewModelFactory : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>) = ItemsFragmentViewModel(
-            ItemsRepository.getInstance()
+        ItemsRepository.getInstance()
     ) as T
 }

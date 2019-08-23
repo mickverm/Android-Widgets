@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import be.mickverm.widgets.recyclerview.utils.calculateFlowableDiff
+import be.mickverm.widget.recyclerview.utils.calculateFlowableDiff
 import be.mickverm.widgets.sample.R
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

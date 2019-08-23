@@ -4,7 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import be.mickverm.widgets.recyclerview.adapter.RxDiffUtilBaseAdapter
+import be.mickverm.widget.recyclerview.adapter.RxDiffUtilBaseAdapter
 import be.mickverm.widgets.sample.R
 import be.mickverm.widgets.sample.recyclerview.data.models.Item
 

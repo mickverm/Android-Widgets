@@ -1,4 +1,4 @@
-package be.mickverm.widgets.recyclerview.decoration
+package be.mickverm.widget.recyclerview.decoration
 
 import android.graphics.Canvas
 import android.graphics.Paint

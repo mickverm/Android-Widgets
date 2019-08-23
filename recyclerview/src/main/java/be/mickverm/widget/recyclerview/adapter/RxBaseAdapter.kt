@@ -1,4 +1,4 @@
-package be.mickverm.widgets.recyclerview.adapter
+package be.mickverm.widget.recyclerview.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.functions.Consumer

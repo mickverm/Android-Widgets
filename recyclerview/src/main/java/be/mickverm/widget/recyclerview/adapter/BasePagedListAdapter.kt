@@ -1,4 +1,4 @@
-package be.mickverm.widgets.recyclerview.adapter
+package be.mickverm.widget.recyclerview.adapter
 
 import android.view.LayoutInflater
 import android.view.View

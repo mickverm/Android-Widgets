@@ -1,4 +1,4 @@
-package be.mickverm.widgets.recyclerview.adapter
+package be.mickverm.widget.recyclerview.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView

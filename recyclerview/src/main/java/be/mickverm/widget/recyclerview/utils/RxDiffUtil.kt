@@ -1,4 +1,4 @@
-package be.mickverm.widgets.recyclerview.utils
+package be.mickverm.widget.recyclerview.utils
 
 import androidx.recyclerview.widget.DiffUtil
 import io.reactivex.FlowableTransformer

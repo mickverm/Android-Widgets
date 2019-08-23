@@ -1,4 +1,4 @@
-package be.mickverm.widgets.recyclerview.adapter
+package be.mickverm.widget.recyclerview.adapter
 
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.DiffUtil

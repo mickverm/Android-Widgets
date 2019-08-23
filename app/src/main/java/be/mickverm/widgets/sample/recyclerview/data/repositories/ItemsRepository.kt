@@ -25,16 +25,16 @@ class ItemsRepository private constructor() {
 
     fun observeItems(interval: Long, timeUnit: TimeUnit): Flowable<List<Item>> {
         return Flowable.interval(0, interval, timeUnit, Schedulers.computation())
-                .map {
-                    randomItems().shuffled(random)
-                }
+            .map {
+                randomItems().shuffled(random)
+            }
     }
 
     private fun randomItems(): List<Item> {
         val items = mutableListOf<Item>()
         for (i in 0 until COUNT) {
             items.add(
-                    Item.random(random, i)
+                Item.random(random, i)
             )
         }
         return items

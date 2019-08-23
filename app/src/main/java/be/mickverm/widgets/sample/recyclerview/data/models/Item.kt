@@ -5,9 +5,9 @@ import androidx.annotation.ColorInt
 import kotlin.random.Random
 
 data class Item(
-        val id: Int,
-        val text: String,
-        @ColorInt val color: Int
+    val id: Int,
+    val text: String,
+    @ColorInt val color: Int
 ) {
     companion object {
         fun random(random: Random, id: Int): Item {
@@ -17,9 +17,9 @@ data class Item(
             val third = (random.nextInt(25) + 65).toChar()
 
             return Item(
-                    id,
-                    String(charArrayOf(first, second, third)),
-                    Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
+                id,
+                String(charArrayOf(first, second, third)),
+                Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
             )
         }
     }
