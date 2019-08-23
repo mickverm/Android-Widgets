@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    implementation project(':widgets')
+    implementation project(':recyclerview')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 

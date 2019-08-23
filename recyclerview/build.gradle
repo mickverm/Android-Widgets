@@ -4,13 +4,13 @@ apply plugin: 'kotlin-kapt'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'Android-Widgets'
+    bintrayName = 'Widget-RecyclerView'
 
     publishedGroupId = 'be.mickverm.widgets'
-    libraryName = 'Widgets'
-    artifact = 'widgets'
+    libraryName = 'RecyclerView'
+    artifact = 'recyclerview'
 
-    libraryDescription = 'Useful widgets to use during Android development.'
+    libraryDescription = 'EmptiableRecyclerView widget, adapter base classes and useful ItemDecorations.'
 
     siteUrl = 'https://github.com/mickverm/Android-Widgets'
     gitUrl = 'https://github.com/mickverm/Android-Widgets.git'
@@ -51,5 +51,5 @@ dependencies {
     testImplementation "org.robolectric:robolectric:$robolectricVersion"
 }
 
-apply from: 'install.gradle'
-apply from: 'bintray.gradle'
+apply from: rootProject.file('install.gradle')
+apply from: rootProject.file('bintray.gradle')
