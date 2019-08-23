@@ -1,21 +1,20 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'RecyclerView'
+    bintrayName = 'EmptyContentView'
 
     publishedGroupId = 'be.mickverm.widget'
-    libraryName = 'RecyclerView'
-    artifact = 'recyclerview'
+    libraryName = 'EmptyContentView'
+    artifact = 'emptycontentview'
 
-    libraryDescription = 'EmptiableRecyclerView widget, adapter base classes and useful ItemDecorations.'
+    libraryDescription = 'EmptyContentView widget based on AOSP.'
 
     siteUrl = 'https://github.com/mickverm/Android-Widgets'
     gitUrl = 'https://github.com/mickverm/Android-Widgets.git'
 
-    libraryVersion = '0.2.0'
+    libraryVersion = '1.0.2'
 
     developerId = 'Mickverm'
     developerName = 'Michiel Vermeersch'
@@ -39,11 +38,7 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-
-    implementation "androidx.recyclerview:recyclerview:$recyclerviewVersion"
-    implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
-
-    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "androidx.appcompat:appcompat:$appcompatVersion"
 
     implementation "be.mickverm.common:common:$commonVersion"
 
