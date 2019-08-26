@@ -1,4 +1,4 @@
-package be.mickverm.widgets.sample.recyclerview.ui.items
+package be.mickverm.widgets.sample.recyclerview.ui.sectioned
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import be.mickverm.widget.recyclerview.utils.calculateObservableDiff
+import be.mickverm.widget.recyclerview.utils.insertObservableSections
 import be.mickverm.widgets.sample.R
 import be.mickverm.widgets.sample.recyclerview.ui.ItemsViewModel
 import be.mickverm.widgets.sample.recyclerview.ui.ItemsViewModelFactory
@@ -17,14 +18,14 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
 
-class ItemsFragment : Fragment() {
+class SectionedItemsFragment : Fragment() {
 
     companion object {
-        fun newInstance() = ItemsFragment()
+        fun newInstance() = SectionedItemsFragment()
     }
 
     private lateinit var viewModel: ItemsViewModel
-    private lateinit var adapter: ItemsAdapter
+    private lateinit var adapter: SectionedItemsAdapter
 
     private val disposables = CompositeDisposable()
 
@@ -41,14 +42,17 @@ class ItemsFragment : Fragment() {
             ItemsViewModelFactory()
         ).get(ItemsViewModel::class.java)
 
-        adapter = ItemsAdapter()
+        adapter = SectionedItemsAdapter()
 
         val rvItems = view.findViewById<RecyclerView>(R.id.rv_items)
-        rvItems.layoutManager = GridLayoutManager(context, 5)
+        rvItems.layoutManager = GridLayoutManager(context, 3)
         rvItems.adapter = adapter
 
-        viewModel.randomItems
-            .compose(calculateObservableDiff(::ItemDiffCallback))
+        viewModel.randomItemsSorted
+            .compose(insertObservableSections { previous, current ->
+                previous.text[0] != current.text[0]
+            })
+            .compose(calculateObservableDiff(::SectionedItemDiffCallback))
             .subscribeOn(Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(adapter)

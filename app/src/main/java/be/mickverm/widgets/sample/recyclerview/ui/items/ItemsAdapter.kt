@@ -4,11 +4,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import be.mickverm.widget.recyclerview.adapter.RxDiffUtilBaseAdapter
+import be.mickverm.widget.recyclerview.adapter.RxDiffUtilAdapter
 import be.mickverm.widgets.sample.R
 import be.mickverm.widgets.sample.recyclerview.data.models.Item
 
-class ItemsAdapter : RxDiffUtilBaseAdapter<Item, ItemsAdapter.ViewHolder>() {
+class ItemsAdapter : RxDiffUtilAdapter<Item, ItemsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(inflateLayout(R.layout.item_item, parent))

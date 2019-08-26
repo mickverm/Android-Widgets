@@ -1,7 +1,7 @@
 package be.mickverm.widgets.sample.recyclerview.data.repositories
 
 import be.mickverm.widgets.sample.recyclerview.data.models.Item
-import io.reactivex.Flowable
+import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 import kotlin.random.Random
@@ -23,8 +23,8 @@ class ItemsRepository private constructor() {
         }
     }
 
-    fun observeItems(interval: Long, timeUnit: TimeUnit): Flowable<List<Item>> {
-        return Flowable.interval(0, interval, timeUnit, Schedulers.computation())
+    fun observeItems(interval: Long, timeUnit: TimeUnit): Observable<List<Item>> {
+        return Observable.interval(0, interval, timeUnit, Schedulers.computation())
             .map {
                 randomItems().shuffled(random)
             }

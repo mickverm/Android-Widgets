@@ -43,11 +43,11 @@ object RxDiffUtil {
 }
 
 inline fun <T> calculateObservableDiff(
-    crossinline function: (List<T>, List<T>) -> DiffUtil.Callback
+    crossinline function: (previous: List<T>, current: List<T>) -> DiffUtil.Callback
 ): ObservableTransformer<List<T>, Pair<List<T>, DiffUtil.DiffResult>> =
     RxDiffUtil.calculateObservableDiff(BiFunction { old, new -> function(old, new) })
 
 inline fun <T> calculateFlowableDiff(
-    crossinline function: (List<T>, List<T>) -> DiffUtil.Callback
+    crossinline function: (previous: List<T>, current: List<T>) -> DiffUtil.Callback
 ): FlowableTransformer<List<T>, Pair<List<T>, DiffUtil.DiffResult>> =
     RxDiffUtil.calculateFlowableDiff(BiFunction { old, new -> function(old, new) })

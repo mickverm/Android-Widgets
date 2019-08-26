@@ -4,7 +4,7 @@
     android:id="@+id/rv_items"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".recyclerview.ui.items.ItemsFragment"
+    tools:context=".recyclerview.ui.sectioned.SectionedItemsFragment"
     tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
     tools:listitem="@layout/item_item"
     tools:spanCount="5" />
