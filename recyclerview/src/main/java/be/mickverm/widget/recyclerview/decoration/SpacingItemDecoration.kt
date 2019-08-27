@@ -11,9 +11,7 @@ class SpacingItemDecoration(
 ) : RecyclerView.ItemDecoration() {
 
     init {
-        if (spanCount < 1) {
-            throw IllegalArgumentException("SpacingItemDecoration must have a span of at least 1!")
-        }
+        require(spanCount >= 1) { "SpacingItemDecoration must have a span of at least 1!" }
     }
 
     override fun getItemOffsets(
