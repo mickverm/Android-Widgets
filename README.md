@@ -6,7 +6,7 @@ RecyclerView
 [ ![Download](https://api.bintray.com/packages/mickverm/maven/RecyclerView/images/download.svg) ](https://bintray.com/mickverm/maven/RecyclerView/_latestVersion)
 
 ````groovy
-implementation 'be.mickverm.widget:recyclerview:1.0.0'
+implementation 'be.mickverm.widget:recyclerview:1.2.0'
 ````
 
 EmptyContentView
