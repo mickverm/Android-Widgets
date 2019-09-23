@@ -7,6 +7,7 @@ import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -15,9 +16,9 @@ import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
-import be.mickverm.common.extensions.hide
-import be.mickverm.common.extensions.show
-import be.mickverm.common.extensions.visible
+import be.mickverm.widget.emptycontentview.extensions.hide
+import be.mickverm.widget.emptycontentview.extensions.show
+import be.mickverm.widget.emptycontentview.extensions.visible
 
 class EmptyContentView : LinearLayout, View.OnClickListener {
 
@@ -64,6 +65,7 @@ class EmptyContentView : LinearLayout, View.OnClickListener {
 
     private fun init(context: Context, attrs: AttributeSet?) {
         orientation = VERTICAL
+        gravity = Gravity.CENTER
         View.inflate(context, R.layout.empty_content_view, this)
         isClickable = true
 

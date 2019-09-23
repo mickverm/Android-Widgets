@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import be.mickverm.widget.emptycontentview.EmptyContentView
+import be.mickverm.widget.recyclerview.EmptiableRecyclerView
 import be.mickverm.widget.recyclerview.utils.calculateObservableDiff
 import be.mickverm.widget.recyclerview.utils.insertObservableSections
 import be.mickverm.widgets.sample.R
@@ -44,7 +46,8 @@ class SectionedItemsFragment : Fragment() {
 
         adapter = SectionedItemsAdapter()
 
-        val rvItems = view.findViewById<RecyclerView>(R.id.rv_items)
+        val emptyView = view.findViewById<EmptyContentView>(R.id.empty_view)
+        val rvItems = view.findViewById<EmptiableRecyclerView>(R.id.rv_items)
         rvItems.layoutManager = GridLayoutManager(context, 3)
         rvItems.adapter = adapter
 

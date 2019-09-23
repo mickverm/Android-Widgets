@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rv_items"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".recyclerview.ui.sectioned.SectionedItemsFragment"
-    tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-    tools:listitem="@layout/item_item"
-    tools:spanCount="5" />
+    tools:context=".recyclerview.ui.sectioned.SectionedItemsFragment">
+
+    <be.mickverm.widget.recyclerview.EmptiableRecyclerView
+        android:id="@+id/rv_items"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:erv_empty_view="@id/empty_view"
+        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/item_item"
+        tools:spanCount="5" />
+
+    <be.mickverm.widget.emptycontentview.EmptyContentView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:ecv_description="Empty"
+        app:ecv_drawable="@drawable/ic_check_box_outline_blank_black_24dp" />
+</FrameLayout>

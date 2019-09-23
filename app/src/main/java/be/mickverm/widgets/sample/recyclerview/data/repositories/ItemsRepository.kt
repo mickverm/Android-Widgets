@@ -24,7 +24,7 @@ class ItemsRepository private constructor() {
     }
 
     fun observeItems(interval: Long, timeUnit: TimeUnit): Observable<List<Item>> {
-        return Observable.interval(0, interval, timeUnit, Schedulers.computation())
+        return Observable.interval(interval * 2, interval, timeUnit, Schedulers.computation())
             .map {
                 randomItems().shuffled(random)
             }

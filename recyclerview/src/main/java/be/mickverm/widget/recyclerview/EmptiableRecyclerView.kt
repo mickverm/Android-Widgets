@@ -3,6 +3,7 @@ package be.mickverm.widget.recyclerview
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import be.mickverm.common.extensions.visible
 
@@ -13,6 +14,27 @@ class EmptiableRecyclerView @JvmOverloads constructor(
 ) : RecyclerView(context, attrs, defStyleAttr) {
 
     var emptyView: View? = null
+
+    @IdRes
+    private var emptyViewId = NO_EMPTY_VIEW
+
+    companion object {
+        const val NO_EMPTY_VIEW = -1
+    }
+
+    init {
+        if (attrs != null) {
+            val a = context.obtainStyledAttributes(
+                attrs,
+                R.styleable.EmptiableRecyclerView
+            )
+            emptyViewId = a.getResourceId(
+                R.styleable.EmptiableRecyclerView_erv_empty_view,
+                NO_EMPTY_VIEW
+            )
+            a.recycle()
+        }
+    }
 
     private val emptyObserver = object : AdapterDataObserver() {
         override fun onChanged() = checkIfEmpty()
@@ -29,6 +51,11 @@ class EmptiableRecyclerView @JvmOverloads constructor(
         }
     }
 
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        if (emptyView == null) setEmptyView(emptyViewId)
+    }
+
     private fun checkIfEmpty() {
         val adapter = adapter
         val emptyView = emptyView
@@ -39,5 +66,9 @@ class EmptiableRecyclerView @JvmOverloads constructor(
             emptyView.visible(empty)
             this@EmptiableRecyclerView.visible(!empty, false)
         }
+    }
+
+    fun setEmptyView(@IdRes idRes: Int) {
+        emptyView = rootView.findViewById(idRes)
     }
 }
