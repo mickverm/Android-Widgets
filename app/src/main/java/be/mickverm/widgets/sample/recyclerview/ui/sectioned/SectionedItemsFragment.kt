@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import be.mickverm.widget.emptycontentview.EmptyContentView
 import be.mickverm.widget.recyclerview.EmptiableRecyclerView
 import be.mickverm.widget.recyclerview.utils.calculateObservableDiff

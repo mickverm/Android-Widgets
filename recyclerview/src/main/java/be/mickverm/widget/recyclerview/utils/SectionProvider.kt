@@ -7,6 +7,7 @@ import io.reactivex.functions.BiFunction
 
 object SectionProvider {
 
+    @JvmStatic
     fun <T> insertSections(
         items: List<T>,
         insert: (previous: T, current: T) -> Boolean
