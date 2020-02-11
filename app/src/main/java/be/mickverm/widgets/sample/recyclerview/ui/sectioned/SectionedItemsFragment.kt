@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import be.mickverm.widget.emptycontentview.EmptyContentView
 import be.mickverm.widget.recyclerview.EmptiableRecyclerView
@@ -38,7 +38,7 @@ class SectionedItemsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel = ViewModelProviders.of(
+        viewModel = ViewModelProvider(
             this,
             ItemsViewModelFactory()
         ).get(ItemsViewModel::class.java)
@@ -48,6 +48,7 @@ class SectionedItemsFragment : Fragment() {
         val emptyView = view.findViewById<EmptyContentView>(R.id.empty_view)
         val rvItems = view.findViewById<EmptiableRecyclerView>(R.id.rv_items)
         rvItems.layoutManager = GridLayoutManager(context, 3)
+        rvItems.emptyView = emptyView
         rvItems.adapter = adapter
 
         viewModel.randomItemsSorted

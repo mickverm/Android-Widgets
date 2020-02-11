@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import be.mickverm.widget.recyclerview.utils.calculateObservableDiff
@@ -36,7 +36,7 @@ class ItemsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel = ViewModelProviders.of(
+        viewModel = ViewModelProvider(
             this,
             ItemsViewModelFactory()
         ).get(ItemsViewModel::class.java)

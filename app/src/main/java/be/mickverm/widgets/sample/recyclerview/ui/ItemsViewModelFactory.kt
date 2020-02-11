@@ -7,7 +7,7 @@ import be.mickverm.widgets.sample.recyclerview.data.repositories.ItemsRepository
 class ItemsViewModelFactory : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel?> create(modelClass: Class<T>) = ItemsViewModel(
+    override fun <T : ViewModel> create(modelClass: Class<T>) = ItemsViewModel(
         ItemsRepository.getInstance()
     ) as T
 }
