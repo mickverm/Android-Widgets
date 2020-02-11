@@ -10,15 +10,16 @@ import be.mickverm.widgets.sample.recyclerview.data.models.Item
 
 class ItemsAdapter : RxDiffUtilAdapter<Item, ItemsAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(inflateLayout(R.layout.item_item, parent))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(parent.inflateLayout(R.layout.item_item))
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int, item: Item) =
         holder.bind(item)
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private val textView: TextView = itemView.findViewById(R.id.text)
+        private val textView: TextView = itemView.findViewById(R.id.tv_text)
 
         fun bind(item: Item) = with(item) {
             itemView.setBackgroundColor(color)

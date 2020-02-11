@@ -8,9 +8,11 @@ class SectionedItemDiffCallback(
     newItems: List<Any>
 ) : HeaderDiffCallback<Item>(oldItems, newItems) {
 
-    override fun areItemItemsTheSame(oldItem: Item, newItem: Item) =
-        oldItem.id == newItem.id
+    override fun areItemItemsTheSame(oldItem: Item, newItem: Item): Boolean {
+        return oldItem.id == newItem.id
+    }
 
-    override fun areItemContentsTheSame(oldItem: Item, newItem: Item) =
-        oldItem == newItem
+    override fun areItemContentsTheSame(oldItem: Item, newItem: Item): Boolean {
+        return oldItem == newItem
+    }
 }

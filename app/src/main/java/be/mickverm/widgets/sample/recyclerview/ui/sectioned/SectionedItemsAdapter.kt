@@ -1,49 +1,49 @@
 package be.mickverm.widgets.sample.recyclerview.ui.sectioned
 
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import be.mickverm.widget.recyclerview.adapter.RxDiffUtilSectionedAdapter
 import be.mickverm.widget.recyclerview.adapter.SectionHeader
-import be.mickverm.widgets.sample.R
+import be.mickverm.widget.recyclerview.adapter.viewholder.BaseViewBindingViewHolder
+import be.mickverm.widgets.sample.databinding.ItemHeaderBinding
+import be.mickverm.widgets.sample.databinding.ItemItemBinding
 import be.mickverm.widgets.sample.recyclerview.data.models.Item
-
 
 class SectionedItemsAdapter :
     RxDiffUtilSectionedAdapter<Item, SectionedItemsAdapter.ItemViewHolder, SectionedItemsAdapter.HeaderViewHolder>() {
 
-    override fun onCreateHeaderViewHolder(parent: ViewGroup) =
-        HeaderViewHolder(inflateLayout(R.layout.item_header, parent))
+    override fun onCreateHeaderViewHolder(parent: ViewGroup): HeaderViewHolder {
+        return HeaderViewHolder(parent.inflateBinding(ItemHeaderBinding::inflate))
+    }
 
-    override fun onCreateItemViewHolder(parent: ViewGroup) =
-        ItemViewHolder(inflateLayout(R.layout.item_item, parent))
+    override fun onCreateItemViewHolder(parent: ViewGroup): ItemViewHolder {
+        return ItemViewHolder(parent.inflateBinding(ItemItemBinding::inflate))
+    }
 
     override fun onBindHeaderViewHolder(
         holder: HeaderViewHolder,
         position: Int,
         header: SectionHeader<Item>
-    ) = holder.bind(header)
+    ) {
+        holder.bind(header)
+    }
 
-    override fun onBindItemViewHolder(holder: ItemViewHolder, position: Int, item: Item) =
+    override fun onBindItemViewHolder(holder: ItemViewHolder, position: Int, item: Item) {
         holder.bind(item)
+    }
 
-    class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class HeaderViewHolder(private val binding: ItemHeaderBinding) :
+        BaseViewBindingViewHolder(binding) {
 
-        private val textView: TextView = itemView.findViewById(R.id.text)
-
-        fun bind(item: Item) = with(item) {
-            itemView.setBackgroundColor(color)
-            textView.text = text
+        fun bind(sectionHeader: SectionHeader<Item>) = with(sectionHeader.item) {
+            binding.tvHeader.text = text[0].toString()
         }
     }
 
-    class HeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ItemViewHolder(private val binding: ItemItemBinding) : BaseViewBindingViewHolder(binding) {
 
-        private val tvHeader: TextView = itemView.findViewById(R.id.tv_header)
-
-        fun bind(sectionHeader: SectionHeader<Item>) = with(sectionHeader.item) {
-            tvHeader.text = text[0].toString()
+        fun bind(item: Item) = with(item) {
+            itemView.setBackgroundColor(color)
+            binding.tvText.text = text
         }
     }
 }
